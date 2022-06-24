@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Spinning Image</title>
+    <style>
+        body {
+            background-color: lightblue;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Spinning Image</h1>
+
+<img src="https://play-lh.googleusercontent.com/9UDY3O4wSwlBm-kHHfjKf85Yk5GCt0nckL5ZdMR-nYotAfNjODvR4sZ-scPXG3ABVF65" alt="Spinning Image" style="transform: rotate(0deg);">
+
+<p>Enter a speed to rotate the image</p>
+<input type="text" id="speedInput">
+
+<button type="button" onclick="changeSpeed()">Submit</button>
+
+<script>
+    function changeSpeed() {
+        var speed = document.getElementById("speedInput").value;
+        var image = document.getElementsByTagName("img")[0];
+        image.style.transform = "rotate(" + speed + "deg)";
+    }
+</script>
+</body>
+</html>

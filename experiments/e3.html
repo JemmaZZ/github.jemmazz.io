@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+<form>
+  <label for="text">Enter something:</label>
+  <input type="text" id="text">
+  <input type="button" value="Submit" onclick="displayText()">
+</form>
+<script>
+function displayText() {
+  var text = document.getElementById("text").value;
+  document.write(text);
+}
+</script>
+</body>
+</html>
