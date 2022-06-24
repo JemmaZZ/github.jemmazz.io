@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spinning Potato!</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: lightblue">
+    <h1>Spinning Potato!</h1>
+    <img id="rotating-image" src="https://play-lh.googleusercontent.com/9UDY3O4wSwlBm-kHHfjKf85Yk5GCt0nckL5ZdMR-nYotAfNjODvR4sZ-scPXG3ABVF65">
+    <button id="stop-button" type="button" class="btn btn-default">Stop</button>
+    <button id="reverse-button" type="button" class="btn btn-default">Reverse</button>
+    <button id="start-button" type="button" class="btn btn-default">Start</button>
+    <input id="speed-textbox" type="text" placeholder="Speed">
+    <script>
+        let speed = 1;
+        let direction = 1;
+        let isStopped = false;
+        let element = document.getElementById("rotating-image");
+
+        document.getElementById("stop-button").onclick = function() {
+            isStopped = true;
+        }
+        
+        document.getElementById("reverse-button").onclick = function() {
+            speed = -speed;
+        }
+
+        document.getElementById("start-button").onclick = function() {
+            isStopped = false;
+        }
+
+        document.getElementById("speed-textbox").oninput = function() {
+            if (this.value.length != 0) {
+			    speed = parseFloat(this.value);
+			}
+        }
+
+        function rotate() {
+            element.style.transform = "rotate(" + (direction) + "deg)";
+            if (!isStopped) {
+                direction += 1 * speed
+            }
+			setTimeout(rotate, 10);
+        }
+        rotate();
+    </script>
+</body>
+</html>
