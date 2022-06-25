@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div class="container">
+  <h2>What is your email address?</h2>
+<?php
+if(isset($_POST['button1'])) {
+$email = $_POST['email'];
+$to = $email;
+$subject = "Message from your website";
+$txt = "AGEJEAJ";
+$headers = "From: yourwebsite@example.com" . "\r\n" .
+"CC: somebodyelse@example.com";
+
+mail($to,$subject,$txt,$headers);
+}
+?>  
+
+<form action="">
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+    <button id="button1" type="submit" class="btn btn-default">Send</button>
+  </form>
+</div>
+
+</body>
+</html>
